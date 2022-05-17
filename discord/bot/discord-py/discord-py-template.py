@@ -174,10 +174,10 @@ def log(*message):
     ログを出力する関数
     """
     out_flag = True
-    if len(message) != 0:
-        if not DEBUG_MODE:
-            if message[0].startswith("[debug]"):
-                out_flag = False
+    # ログ出力フラグを確認して表示するか否かを判断する
+    if len(message) != 0 and not DEBUG_MODE:
+        if message[0].startswith("[debug]"):
+            out_flag = False
 
     if out_flag:
         print(get_current_time(), *message)
@@ -186,6 +186,10 @@ def log(*message):
 def print_test():
     """
     テスト用関数
+
+    定数や変数の状態確認用です。
+    初心のうちは print() 命令たくさん使って中身を常に確認しましょう。
+    慣れたら変数の中身を見なくても想像つくようになります。
     """
     log("[test] === test === begin")
     # log("[test] DISCORD_BOT_TOKEN:", DISCORD_BOT_TOKEN)
@@ -194,7 +198,7 @@ def print_test():
     log("[test] BOT_ADMIN_USERNAME:", BOT_ADMIN_USERNAME)
     log("[test] BOT_ADMIN_DISCRIMINATOR:", BOT_ADMIN_DISCRIMINATOR)
     log("[test] waiting... 2 seconds")
-    wait(2)  # 2 秒待つ
+    wait(2)  # 2 秒待つ（これは diff_date_time() のテスト用）
     log("[test] boot_startup_time:", boot_startup_time)
     log("[test] get_current_time:", get_current_time())
     log("[test] diff_date_time:", diff_date_time(get_current_time(), boot_startup_time))
@@ -390,7 +394,9 @@ async def on_message(message):
             await message.channel.send("Hello!")
             log("[info] Send 'Hello!' message")
         elif mc.startswith("!ping"):
-            await message.channel.send("🏓Pong!")
+            late = client.latency
+            ping = round(late * 1000)
+            await message.channel.send("🏓Pong! Latency: {} ms".format(ping))
             log("[info] Send 'Pong!' message")
         elif mc.startswith("!time"):
             await message.channel.send(get_current_time())
