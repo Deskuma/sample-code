@@ -8,7 +8,7 @@
 # https://discordpy.readthedocs.io/ja/latest/
 #
 # @author: Deskuma <e-mail address> <github account> <twitter account> <discord account>
-# @version: 1.0.0 # バージョン
+# @version: 1.0.0a # バージョン
 # @license: MIT License # ライセンス
 # @see: https://discordpy.readthedocs.io/ja/latest/quickstart.html
 # @see: https://discordpy.readthedocs.io/ja/latest/api.html
@@ -21,7 +21,7 @@
 #   - Python3.6.8 以上を使用する
 #   - discord.py をインストールする
 #   - このファイルに対しての修正箇所を書き直す（後でも良いけど）
-#       1. ファイル名を discord-<ボット名>-bot.js に変更する
+#       1. ファイル名を discord-<ボット名>-bot.py に変更する
 #       2. 作者名を変更する
 #       3. バージョンを変更する
 #       4. ライセンスを変更する
@@ -60,7 +60,9 @@
 #   （って、copilot が言っています！この上記文章の一部も AI が自動で書いてくれましたｗ）
 # -----------------------------------------------------------------------------
 変更履歴
-@version: 1.0.0 初版
+version: 1.0.0a コメント修正
+version: 1.0.0 初版
+
 """
 # -------------------------------------
 # const 定数定義域

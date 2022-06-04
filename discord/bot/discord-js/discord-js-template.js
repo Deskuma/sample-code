@@ -3,7 +3,7 @@
  * Discord.js を使った bot サーバーを作るためのテンプレート
  *
  * @author Deskuma <e-mail address> <github account> <twitter account> <discord account> など # 作者名
- * @version 1.0.0 # バージョン
+ * @version 1.0.0a # バージョン
  * @license MIT # ライセンス
  * @see URL # 参考URL
  * @see https://guide.discordjs-japan.org/
@@ -32,7 +32,8 @@
  * （って、copilot が言っています！この上記文章の一部も AI が自動で書いてくれましたｗ）
  *
  * 変更履歴
- * @version 1.0.0 初版
+ * version 1.0.0a コメント修正
+ * version 1.0.0 初版
  */
 
 // ------------------------------------
@@ -63,7 +64,7 @@ const ADMIN_DISCRIMINATOR = "0000"; // discriminator 識別番号 (名前のあ�
 const { Client, Intents } = require("discord.js"); // discord.js ライブラリ読み込み
 
 // discord.js から client を作成
-const client = new Client({
+const client = new Client({ // TODO:2022-05-20 定数名とクラス名が大文字小文字の差しかないので混乱する可能性！
   // intents は、Discord.js が受け取るイベントを指定する
   // イベントが届かなかったら Discord 側の BOT パーミッションの設定を確認してください
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
